@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<body>
+    <h3>このポケモンは何？</h2>
+    <p>{{ bunrui }}</p>
+    <input id="answer" type="text">
+    <button id="btn">回答する</button>
+    <p id="poke_name" style="display: none;">{{ poke_name }}</p>
+    <h4 id="status"></h4>
+    <button id="see_answer">答えを見る</button>
+    <script>
+        let answer = document.getElementById('answer');
+        const btn = document.getElementById('btn');
+        const pokeName = document.getElementById('poke_name');
+        const torf = document.getElementById('status');
+        const seeAnswer = document.getElementById('see_answer')
+    
+        btn.addEventListener('click', () => {
+            console.log(answer.value);
+            if (answer.value == pokeName.innerText) {
+                torf.innerText = '正解';
+                torf.style.color = '#ff0000';
+            } else {
+                torf.innerText = '不正解';
+                torf.style.color = 'blue';
+            }
+    
+        });
+
+        seeAnswer.addEventListener('click', () => {
+            pokeName.style.display = 'block';
+        })
+    </script>
+</body>
+
+{% endblock %}
