@@ -20,6 +20,10 @@ def pokebunruifunc(request):
         choiced = random.choice(l)
         bunrui = choiced[2]
         poke_name = choiced[1]
+    
+    num = choiced[0]
+    s = num.zfill(4)
+    poke_url = 'https://zukan.pokemon.co.jp/detail/' + s
 
         # while True:
         #     if input(choiced[2]) == choiced[1]:
@@ -27,5 +31,5 @@ def pokebunruifunc(request):
         #         break
         #     else:
         #         print('✕')
-    context = {'bunrui':bunrui, 'poke_name':poke_name}
+    context = {'bunrui':bunrui, 'poke_name':poke_name, 'poke_url':poke_url}
     return render(request, template_name, context)
