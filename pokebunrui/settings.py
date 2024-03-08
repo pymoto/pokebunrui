@@ -128,7 +128,7 @@ STATICFILES_DIR = [str(BASE_DIR / 'static')]
 #     'django.contrib.staticfiles.finders.FileSystemFinder',
 # ]
 
-CSV_FILE_PATH = os.path.join(BASE_DIR, 'pokebunrui.csv')
+CSV_FILE_PATH = os.path.join(BASE_DIR, 'csvfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
