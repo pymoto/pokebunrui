@@ -8,83 +8,19 @@
     <p>{{ bunrui }}</p>
     <input id="answer" type="text">
     <button id="btn">回答する</button>
-    <button id="hint">ヒントをみる</button>
-    <p id="hint_text" style="display: none;">{{ poke_type_jp }} タイプ</p>
+    <button id="hint">ヒント1をみる</button>
+    <p id="hint1_text" style="display: none;">{{ poke_gen_text }} </p>
+    <p id="hint2_text" style="display: none;">{{ poke_type_jp }} タイプ</p>
     <p id="poke_name" style="display: none;">{{ poke_name }}</p>
     <img id="img" src="{{ poke_image }}" alt="" style="display: none;">
     <a id="zukan" href="{{ poke_url }}" style="display: none;">図鑑で見る</a>
+    <p id="other_ans" style="display: none;">他の回答例：{{ other_ans }}</p>
     <h4 id="status"></h4>
     <button id="see_answer">答えを見る</button>
     <button onclick="window.location.reload();">次の問題</button> 
     <button id="reset">得点リセット</button>
-
-
-    <script>
-        const point = document.getElementById('point');
-        let pointCount = Number(localStorage.getItem('pointMemory'));
-        let answer = document.getElementById('answer');
-        const btn = document.getElementById('btn');
-        const hint = document.getElementById('hint');
-        const hintText = document.getElementById('hint_text');
-        const pokeName = document.getElementById('poke_name');
-        const torf = document.getElementById('status');
-        const seeAnswer = document.getElementById('see_answer');
-        const img = document.getElementById('img');
-        const zukan = document.getElementById('zukan');
-        const reset = document.getElementById('reset');
-
-
-        
-        btn.addEventListener('click', () => {
-            console.log(answer.value);
-            if (answer.value == pokeName.innerText) {
-                torf.innerText = '正解';
-                torf.style.color = '#ff0000';
-                pointCount += 5;
-                localStorage.setItem("pointMemory", pointCount);
-                point.innerText = localStorage.getItem('pointMemory');
-            } else {
-                torf.innerText = '不正解';
-                torf.style.color = 'blue';
-                pointCount -= 1;
-                localStorage.setItem("pointMemory", pointCount);
-                point.innerText = localStorage.getItem('pointMemory');
-            }
-        });
-
-        hint.addEventListener('click', () => {
-            hintText.style.display = 'block';
-            pointCount -= 1;
-            localStorage.setItem("pointMemory", pointCount);
-            point.innerText = localStorage.getItem('pointMemory');
-        });
-
-        seeAnswer.addEventListener('click', () => {
-            pokeName.style.display = 'block';
-            img.style.display = 'block';
-            zukan.style.display = 'block';
-            btn.disabled = true
-
-        });
-
-        reset.addEventListener('click', () => {
-            let result = window.confirm('リセットしますか？')
-            if (result) {
-                localStorage.removeItem("pointMemory", pointCount)
-                point.innerText = 0;
-            }
-                
-        })
-
-        window.addEventListener('load', () => {
-            if (localStorage.getItem('pointMemory')) {
-                point.innerText = localStorage.getItem('pointMemory');
-            }else {
-                point.innerText = 0;
-            }
-
-        })
-    </script>
+    {% load static %}
+    <script src="{% static 'js/pokebunrui.js' %}"></script>
 </body>
 
 {% endblock %}
