@@ -9,8 +9,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # CSV ファイルへのパスを指定
 CSV_FILE_PATH = os.path.join(BASE_DIR, 'pokebunrui.csv')
 
-# def homefunc(request):
-#     return request
+def indexfunc(request):
+    template_name = 'index.html'
+    return render(request, template_name, {})
 
 def pokebunruifunc(request):
     template_name = 'pokebunrui.html'

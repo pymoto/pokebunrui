@@ -17,9 +17,10 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from .views import pokebunruifunc
+from .views import pokebunruifunc, indexfunc
 
 urlpatterns = [
     # path('home/',homefunc(), name='home'),
     path('pokebunrui/', pokebunruifunc, name='pokebunrui'),
+    path('', indexfunc, name='index')
 ]

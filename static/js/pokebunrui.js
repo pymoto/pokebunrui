@@ -13,33 +13,47 @@ let pointCount = Number(localStorage.getItem('pointMemory'));
         const zukan = document.getElementById('zukan');
         const reset = document.getElementById('reset');
         const otherAns = document.getElementById('other_ans')
+        const otherAnswers = document.getElementById('other_answers')
 
-        let hintCounter = 0;
+        let hintCounter = 0;        
 
+        
 
         function openAllHints() {
             hint1Text.style.display = 'block';
             hint2Text.style.display = 'block';
             hint.disabled = true;
-            otherAns.style.display = 'block';
+            otherAnswers.style.display = 'block';
+        }
+
+        function finishQuiz() {
+            pokeName.style.display = 'block';
+            img.style.display = 'block';
+            zukan.style.display = 'block';
+            btn.disabled = true;
         }
         
+        const ansPokeArray = otherAns.textContent.split('・');
+
         btn.addEventListener('click', () => {
-            console.log(answer.value);
-            if (pokeName.innerText.includes(answer.value) || otherAns.innerText.includes(answer.value)) {
+
+            if (answer.value != 'なし' && (answer.value == pokeName.textContent || ansPokeArray.includes(answer.value))) {
                 torf.innerText = '正解';
                 torf.style.color = '#ff0000';
                 pointCount += 5;
                 localStorage.setItem("pointMemory", pointCount);
                 point.innerText = localStorage.getItem('pointMemory');
+                finishQuiz();
                 openAllHints();
+            } else if (!answer.value || answer.value.includes('　')) {
+
             } else {
                 torf.innerText = '不正解';
                 torf.style.color = 'blue';
                 pointCount -= 1;
                 localStorage.setItem("pointMemory", pointCount);
                 point.innerText = localStorage.getItem('pointMemory');
-            }
+            } 
         });
 
         hint.addEventListener('click', () => {
@@ -62,10 +76,7 @@ let pointCount = Number(localStorage.getItem('pointMemory'));
         });
 
         seeAnswer.addEventListener('click', () => {
-            pokeName.style.display = 'block';
-            img.style.display = 'block';
-            zukan.style.display = 'block';
-            btn.disabled = true;
+            finishQuiz();
             openAllHints();
 
         });
