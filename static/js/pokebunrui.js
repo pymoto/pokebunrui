@@ -11,6 +11,7 @@ let pointCount = Number(localStorage.getItem('pointMemory'));
         const seeAnswer = document.getElementById('see_answer');
         const img = document.getElementById('img');
         const zukan = document.getElementById('zukan');
+        const nextQuiz = document.getElementById('next_quiz');
         const reset = document.getElementById('reset');
         const otherAns = document.getElementById('other_ans')
         const otherAnswers = document.getElementById('other_answers')
@@ -31,6 +32,7 @@ let pointCount = Number(localStorage.getItem('pointMemory'));
             img.style.display = 'block';
             zukan.style.display = 'block';
             btn.disabled = true;
+            nextQuiz.disabled = false;
         }
         
         const ansPokeArray = otherAns.textContent.split('・');
@@ -40,7 +42,7 @@ let pointCount = Number(localStorage.getItem('pointMemory'));
             if (answer.value != 'なし' && (answer.value == pokeName.textContent || ansPokeArray.includes(answer.value))) {
                 torf.innerText = '正解';
                 torf.style.color = '#ff0000';
-                pointCount += 5;
+                pointCount += 3;
                 localStorage.setItem("pointMemory", pointCount);
                 point.innerText = localStorage.getItem('pointMemory');
                 finishQuiz();
@@ -78,8 +80,12 @@ let pointCount = Number(localStorage.getItem('pointMemory'));
         seeAnswer.addEventListener('click', () => {
             finishQuiz();
             openAllHints();
-
+            
         });
+
+        nextQuiz.addEventListener('click', () => {
+            window.location.reload();
+        })
 
         reset.addEventListener('click', () => {
             let result = window.confirm('リセットしますか？')
