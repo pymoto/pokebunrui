@@ -1,7 +1,16 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<header>
+
+</header>
+{% endblock header %}
+
 {% block content %}
 <body>
-    <a href="/pokebunrui/">START QUIZ</a>
-    <a href="/randombtn/">誰かのブログを見に行く</a>
+    <a class="applink" href="/pokebunrui10/"><p class="applink-text">START QUIZ 10</p></a>
+    <a class="applink" href="/pokebunrui/"><p class="applink-text">START QUIZ</p></a>
+    <a class="applink" href="/randombtn/"><p class="applink-text">誰かのブログを見に行く</p></a>
 </body>
 {% endblock %}

@@ -1,0 +1,22 @@
+@charset "UTF-8"; 
+
+.applink {
+    all: unset;
+    font-size: 4vw;
+    display: flex;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 16px;
+    margin: 15px auto;
+    width: 80vw;
+}
+
+.applink:hover {
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+.applink-text {
+    all: unset;
+    margin: auto;
+}

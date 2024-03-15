@@ -3,10 +3,16 @@
 
 
 <body>
-    <main>
+    <div id="game-start-btn-wrapper">
+        
+        <button id="game-start-btn">START!</button>
+    </div>
+    <main id="pokebunrui10-main">
         <h3>このポケモンは何？</h2>
+        <h3 id="number_of_quizzes" ></h3>
         <p>得点:<span id="point">0</span></p>
         <p>{{ bunrui }}</p>
+        <!-- <button id="startbtn" style="display: block;">START</button> -->
         <input id="answer" type="text">
         <button id="btn">回答する</button>
         <button id="hint">ヒント1をみる</button>
@@ -17,15 +23,25 @@
         <img id="img" src="{{ poke_image }}" alt="" style="display: none;">
         <p id="other_answers" style="display: none;"><span>他の回答例：</span><span id="other_ans">{{ other_ans }}</span></p>
         <a id="zukan" href="{{ poke_url }}" style="display: none;">図鑑で見る</a>
-        <button id="see_answer">答えを見る</button>
+        <button id="see_answer">答えを見る（諦める）</button>
         <button id="next_quiz" disabled>次の問題</button> 
-        <button id="reset">得点リセット</button>
+
+        <form action="result/" method="post">{% csrf_token %}
+            <input id="total-point-input" name="total-point-input" type="hidden">
+            <button id="finish-game-btn" class="reset-btn" type="submit" disabled>次に進む</button>
+
+        </form>
+        <button id="new-game">Quit and New Game</button>
+        <!-- <button id="reset">得点リセット</button> -->
         <!-- <iframe id="zukan_frame" src="{{ poke_url }}" frameborder="0" style="display: none;" ></iframe> -->
         
     </main>
     
     {% load static %}
-    <script src="{% static 'js/pokebunrui.js' %}"></script>
+    <script src="{% static 'js/pokebunrui10.js' %}"></script>
+    <script>
+
+    </script>
 </body>
 
 {% endblock %}

@@ -17,10 +17,15 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from .views import pokebunruifunc, indexfunc
+from .views import pokebunruifunc, indexfunc, pokebunrui10func, pokebunrui10resultfunc
+
+app_name = 'pokebunruiapp'
 
 urlpatterns = [
     # path('home/',homefunc(), name='home'),
     path('pokebunrui/', pokebunruifunc, name='pokebunrui'),
+    path('pokebunrui10/', pokebunrui10func, name='pokebunrui10'),
+    path('pokebunrui10/result/', pokebunrui10resultfunc, name='pokebunrui10'),
+    
     path('', indexfunc, name='index')
 ]

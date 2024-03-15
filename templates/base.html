@@ -5,11 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pokebunrui</title>
     {% load static %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pokebunrui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pokebunrui10.css' %}">
+
     <!-- <script src="{% static 'bunruicheck.js' %}"></script> -->
     <!-- <script src="pokebunruiapp/static/bunruicheck.js"></script> -->
 
 </head>
 {% block header %}
+<header>
+    <h4><a id="reset-btn" href="{% url 'pokebunruiapp:index' %}">ホームに戻る</a></h4>
+
+</header>
 {% endblock header %}
 
 {% block content %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<body>
+    <p>記録：{{ total_point }}点</p>
+    <a href="https://twitter.com/share?url=http://54.248.31.155/&text=pokebunruiで{{ total_point }}点獲得！ リンク：" target="_blank" rel="nofollow">
+        Twitterでシェア
+    </a>
+    <a href="{% url 'pokebunruiapp:index' %}">戻る</a>
+</body>
+{% endblock %}

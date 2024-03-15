@@ -15,6 +15,7 @@ let pointCount = Number(localStorage.getItem('pointMemory'));
         const reset = document.getElementById('reset');
         const otherAns = document.getElementById('other_ans')
         const otherAnswers = document.getElementById('other_answers')
+        const zukanFrame = document.getElementById('zukan_frame');
 
         let hintCounter = 0;        
 
@@ -25,7 +26,7 @@ let pointCount = Number(localStorage.getItem('pointMemory'));
             hint1Text.style.display = 'block';
             hint2Text.style.display = 'block';
             hint.disabled = true;
-            otherAnswers.style.display = 'block';
+            // otherAnswers.style.display = 'block';
         }
 
         function finishQuiz() {
@@ -34,6 +35,8 @@ let pointCount = Number(localStorage.getItem('pointMemory'));
             zukan.style.display = 'block';
             btn.disabled = true;
             nextQuiz.disabled = false;
+            zukanFrame.style.display = 'block';
+
         }
         
         const ansPokeArray = otherAns.textContent.split('・');
