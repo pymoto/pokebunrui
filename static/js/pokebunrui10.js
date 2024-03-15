@@ -63,7 +63,9 @@ function finishQuiz() {
     img.style.display = 'block';
     zukan.style.display = 'block';
     btn.disabled = true;
-    if (localStorage.getItem('nowQuizOrder') != 10) {
+    quizOrder ++;
+    localStorage.setItem('nowQuizOrder', quizOrder)
+    if (localStorage.getItem('nowQuizOrder') != 11) {
         nextQuiz.disabled = false;
     }
     finishGameBtn.disabled = false;
@@ -131,8 +133,8 @@ nextQuiz.addEventListener('click', () => {
 window.addEventListener('load', () => {
 
     if (localStorage.getItem('nowQuizOrder')) {
-        quizOrder ++;
-        localStorage.setItem('nowQuizOrder', quizOrder)
+        
+        
     }else {
         let quizOrder = 1;
         localStorage.setItem('nowQuizOrder', quizOrder);

@@ -137,5 +137,8 @@ def pokebunrui10func(request):
 def pokebunrui10resultfunc(request):
     template_name = 'pokebunrui10result.html'
     if request.method == 'POST':
-        total_point = request.POST['total-point-input']
+        if request.POST['total-point-input']:
+            total_point = request.POST['total-point-input']
+        else:
+            total_point = 0
     return render(request, template_name, {'total_point':total_point})
