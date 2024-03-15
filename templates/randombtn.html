@@ -9,13 +9,7 @@
     <button><a href="{{ randomurl }}">ブログに飛ぶ</a></button>
     <iframe src="{{ randomurl }}" frameborder="0" style="width:100%;height: 800px;"></iframe>
     
-    
-    <script>
-        const nextbtn = document.getElementById('nextbtn')
-
-        nextbtn.addEventListener('click', () => {
-            location.reload();
-        })
-    </script>
+    {% load static %}
+    <script src="{% static 'js/randomblog.js' %}"></script>
 </body>
 {% endblock content %}
