@@ -1,0 +1,18 @@
+{% extends 'base.html' %}<
+
+{% block content %}
+<body>
+    
+    <button id="nextbtn">次のブログ</button>
+    <iframe src="{{ randomurl }}" frameborder="0" style="width:100%;height: 800px;"></iframe>
+    
+    
+    <script>
+        const nextbtn = document.getElementById('nextbtn')
+
+        nextbtn.addEventListener('click', () => {
+            location.reload();
+        })
+    </script>
+</body>
+{% endblock content %}

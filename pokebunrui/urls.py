@@ -23,4 +23,5 @@ from django.conf.urls.static import static
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('', include('pokebunruiapp.urls')),
+    path('', include('randomblog.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -19,6 +19,7 @@ let pointCount = Number(localStorage.getItem('pointMemory'));
         let hintCounter = 0;        
 
         
+        
 
         function openAllHints() {
             hint1Text.style.display = 'block';
