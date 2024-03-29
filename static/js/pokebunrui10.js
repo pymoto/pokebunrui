@@ -63,8 +63,7 @@ function finishQuiz() {
     img.style.display = 'block';
     zukan.style.display = 'block';
     btn.disabled = true;
-    quizOrder ++;
-    localStorage.setItem('nowQuizOrder', quizOrder)
+    
     if (localStorage.getItem('nowQuizOrder') != 11) {
         nextQuiz.disabled = false;
     }
@@ -123,7 +122,12 @@ seeAnswer.addEventListener('click', () => {
     
 });
 
+let loadCheck = false;
+
 nextQuiz.addEventListener('click', () => {
+    quizOrder ++;
+    localStorage.setItem('nowQuizOrder', quizOrder)
+    loadCheck = true;
     window.location.reload();
 });
 
