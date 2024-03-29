@@ -11,12 +11,12 @@ def randombtnfunc(request):
     topiclist = []
     article_list = []
     site_selector = random.randint(1,2)
-    if site_selector == 0:
-        random_url_get('https://hatenablog.com/topics/journal', '.topic-nav-item-link', topiclist)
-        print(topiclist)
-        random_url_get(random.choice(topiclist), '.entry-link', article_list)
-        print(article_list)
-    elif site_selector == 1:
+    # if site_selector == 0:
+    #     random_url_get('https://hatenablog.com/topics/journal', '.topic-nav-item-link', topiclist)
+    #     print(topiclist)
+    #     random_url_get(random.choice(topiclist), '.entry-link', article_list)
+    #     print(article_list)
+    if site_selector == 1:
         random_url_get('https://ameblo.jp', '.spui-LinkButton--neutral', topiclist)
         print(topiclist)
         random_url_get(random.choice(topiclist), '.RankingItem_Link__1CxHV', article_list)
