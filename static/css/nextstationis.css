@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+.container {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.station-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.station {
+    
+    margin: 0;
+}
+
+.sub-stations {
+    font-size: min(3vw, 30px);
+    background-color: #E8E8E8;
+    height: 10vw;
+    width: 17%;
+    
+}
+
+/* .prev {
+
+
+} */
+
+.now-wrapper {
+    width: 35%;
+    background-color: #FFF5DD;
+}
+
+.now {
+    font-size: 5vw;
+    border-bottom: 2vw solid #52BA00;
+
+    
+}
+
+
+/* .next {
+
+} */
+
+.info-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.distance-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 20%;
+}
+.btn-wrapper {
+    width: 20%;
+}
+
+.btn {
+    font-size: 3vw;
+    padding:  1vw 2vw;
+}
+
+.position-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 20%;
+}

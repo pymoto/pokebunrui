@@ -26,7 +26,8 @@ SECRET_KEY = "django-insecure-b9ltkmf07684yx_s28#zvzto=udty8)gu#3&=(9xjsa+^9oe=l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['warabiii.com']
+ALLOWED_HOSTS = ['127.0.0.1','warabiii.com']
+# ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'pokebunruiapp.apps.PokebunruiappConfig',
     'randomblog.apps.RandomblogConfig',
+    'nextstationis.apps.NextstationisConfig',
 ]
 
 MIDDLEWARE = [
@@ -122,12 +124,16 @@ STATIC_URL = "/static/"
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-STATICFILES_DIRS = [str(BASE_DIR / 'static')]
+# STATICFILES_DIRS = [str(BASE_DIR / 'static')]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 
-# STATICFILES_FINDERS = [
-#     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#     'django.contrib.staticfiles.finders.FileSystemFinder',
-# ]
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+]
 
 CSV_FILE_PATH = os.path.join(BASE_DIR, 'csvfiles')
 
@@ -135,3 +141,6 @@ CSV_FILE_PATH = os.path.join(BASE_DIR, 'csvfiles')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+CSRF_COOKIE_SECURE = True
