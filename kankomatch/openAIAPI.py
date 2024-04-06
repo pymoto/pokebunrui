@@ -8,7 +8,7 @@ def explain_about_place_func(place_name):
         response = client.chat.completions.create(
                 model="gpt-4-0125-preview",
                 messages=[
-                {"role": "system", "content": "この場所について50文字程度で説明してください。場所についての情報がない場合は「情報なし」とだけ答えてください。"},
+                {"role": "system", "content": "この場所について50文字程度で説明してください。場所についての情報がない場合は必ず「情報なし」とだけ答えてください。"},
                 {"role": "user", "content": place_name},
             ],
         )
