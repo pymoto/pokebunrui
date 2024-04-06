@@ -11,11 +11,27 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-import os
+import os, environ
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# settings.pyの位置を起点として３つ上の親ディレクトリを参照。
+# BASE_DIR = environ.Path(__file__) - 3
+
+env = environ.Env()
+
+# READ_ENV_FILE = env.bool('DJANGO_READ_ENV_FILE', default=False)
+# if READ_ENV_FILE:
+#     env_file = str(BASE_DIR.path('.env'))
+#     env.read_env(env_file)
+
+# env_file = str(BASE_DIR.path('.env'))
+env_file = str(BASE_DIR) + '/.env'
+
+env.read_env(env_file)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -42,11 +58,14 @@ INSTALLED_APPS = [
     'pokebunruiapp.apps.PokebunruiappConfig',
     'randomblog.apps.RandomblogConfig',
     'nextstationis.apps.NextstationisConfig',
+    'kankomatch.apps.KankomatchConfig',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -145,4 +164,13 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CSRF_COOKIE_SECURE = True
 
-CSRF_TRUSTED_ORIGINS = ['https://warabiii.com']
+# CSRF_TRUSTED_ORIGINS = ['https://warabiii.com']
+
+GOOGLE_API_KEY = env('GOOGLE_API_KEY')
+OPENAI_API_KEY = env('OPENAI_API_KEY')
+
+# CORS_ALLOWED_ORIGINS = [
+#     'http://127.0.0.1:8000',
+#     'https://warabiii.com'
+# ]
+# CORS_ORIGIN_ALLOW_ALL = True

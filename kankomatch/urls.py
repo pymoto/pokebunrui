@@ -16,16 +16,14 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path, include
-from django.conf import settings
-from django.conf.urls.static import static
+from django.urls import path
+from .views import kankomatchfunc, indexfunc
+
+app_name = 'kankomatch'
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path('', include('pokebunruiapp.urls')),
-    path('', include('randomblog.urls')),
-    path('', include('nextstationis.urls')),
-    path('', include('kankomatch.urls')),
-
-
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    # path('home/',homefunc(), name='home'),
+    path('kankomatch/', kankomatchfunc, name='kankomatch'),
+    
+    path('', indexfunc, name='index')
+]

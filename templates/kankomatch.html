@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<header>
+
+</header>
+{% endblock header %}
+
+{% block content %}
+<body>
+    <main class="km-main">
+        <div class="km-scroller" id="scroller">
+            <div class="km-container">
+                <h3 class="km-place-name" id="km-place-name">{{ place_name0 }}</h3>
+                <h4 class="km-address km-place-name">{{ formatted_address0 }}</h4>
+                <p class="km-explain">{{ place_explain0 }}</p>
+                <ul class="km-img-ul">
+                    {% for photo_url in photo_urls0 %}
+                    <li class="km-img-li"><img class="km-img" src="{{ photo_url }}" alt=""></li>
+                    {% endfor %}
+                </ul>
+                <p>場所ののキーワード：{{ keywords0 }}</p>
+                <a href="https://google.com/maps/place/?q=place_id:{{ place_id0 }}"><p>GoogleMapで開く</p></a>
+
+            </div>
+            <div class="km-container">
+                <h3 id="km-place-name">{{ place_name1 }}</h3>
+                <h4 class="km-address km-place-name">{{ formatted_address1 }}</h4>
+                <p class="km-explain">{{ place_explain1 }}</p>
+                <ul class="km-img-ul">
+                    {% for photo_url in photo_urls1 %}
+                    <li class="km-img-li"><img class="km-img" src="{{ photo_url }}" alt=""></li>
+                    {% endfor %}
+                </ul>
+                <p>場所ののキーワード：{{ keywords1 }}</p>
+                <a href="https://google.com/maps/place/?q=place_id:{{ place_id1 }}"><p>GoogleMapで開く</p></a>
+
+            </div>
+            <div class="km-container">
+                <h3 id="km-place-name">{{ place_name2 }}</h3>
+                <h4 class="km-address km-place-name">{{ formatted_address2 }}</h4>
+                <p class="km-explain">{{ place_explain2 }}</p>
+                <ul class="km-img-ul">
+                    {% for photo_url in photo_urls2 %}
+                    <li class="km-img-li"><img class="km-img" src="{{ photo_url }}" alt=""></li>
+                    {% endfor %}
+                </ul>           
+                <p>場所のキーワード：{{ keywords2 }}</p>
+                <a href="https://google.com/maps/place/?q=place_id:{{ place_id2 }}"><p>GoogleMapで開く</p></a>
+
+            </div>
+
+        </div>
+        <div class="km-loading">
+            <p>読み込み中・・・</p>
+            <img src="{% static 'img/loading-06.gif' %}" alt="">
+        </div>
+    </main>
+
+
+    
+<script>
+    let url = "{% url 'kankomatch:kankomatch' %}";
+    let execution_flag = false;
+    const scroller = document.getElementById('scroller');
+
+    document.addEventListener('scroll', () => {
+        try {
+            let children = document.getElementById('scroller').children;
+            let {top, height} = children[children.length - 1].getBoundingClientRect();
+            if (top + height <= window.innerHeight && !execution_flag) {
+                execution_flag = true;
+                fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    const tempContainer = document.createElement('div');
+                    tempContainer.innerHTML = data;
+                    const fetchedContainers = tempContainer.querySelectorAll('.km-container');
+                    fetchedContainers.forEach(container => {
+                        const ul = container.querySelector('ul');
+                        scroller.appendChild(container);
+                    });
+                    execution_flag = false;
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                    execution_flag = false;
+                });
+            }
+        } catch (e) {
+            console.error(e);
+        }
+    }, {passive: true});
+
+
+
+</script>
+
+</body>
+{% endblock %}
