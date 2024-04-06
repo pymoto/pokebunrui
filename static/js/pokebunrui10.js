@@ -124,12 +124,14 @@ seeAnswer.addEventListener('click', () => {
 
 let loadCheck = false;
 
-nextQuiz.addEventListener('click', () => {
-    quizOrder ++;
-    localStorage.setItem('nowQuizOrder', quizOrder)
-    loadCheck = true;
-    window.location.reload();
-});
+// nextQuiz.addEventListener('click', () => {
+//     quizOrder ++;
+//     localStorage.setItem('nowQuizOrder', quizOrder)
+//     loadCheck = true;
+//     window.location.reload();
+// });
+
+
 
 
 

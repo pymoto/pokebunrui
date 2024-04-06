@@ -40,6 +40,21 @@
     {% load static %}
     <script src="{% static 'js/pokebunrui10.js' %}"></script>
     <script>
+        quizOrder ++;
+        localStorage.setItem('nowQuizOrder', quizOrder)
+        loadCheck = true;
+        const nextQuiz = document.getElementById('next_quiz')
+        nextQuiz.addEventListener('click', () => {
+            fetch('{% url "pokebunruiapp:pokebunrui10" %}')
+            .then(response => response.text)
+            .then(data => {
+                const container = document.createElement('div');
+                container.innerHTML = data;
+                const mainContent = document.getElementById('pokebunrui10-main');
+                mainContent.innerHTML = container.querySelector('#pokebunrui10-main').innerHTML;
+            })
+            .catch(error => console.error('データの取得中にエラーが発生しました:', error));
+        });
 
     </script>
 </body>

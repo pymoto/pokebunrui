@@ -130,7 +130,3 @@ def placesAPImasterfunc(api_key):
             print("Nearby Place ID:", "No Data")
             print("Place Name:", "No Data")
             print('retry')
-
-
-
-# placesAPImasterfunc("AIzaSyA64i0ZHYfSF4bbttE_SuFgqeKqo--GG3c")

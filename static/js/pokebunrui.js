@@ -91,6 +91,7 @@ let pointCount = Number(localStorage.getItem('pointMemory'));
             window.location.reload();
         })
 
+
         reset.addEventListener('click', () => {
             let result = window.confirm('リセットしますか？')
             if (result) {
