@@ -1,10 +1,21 @@
 {% extends 'base.html' %}
+
+{% block head %}
+<title>pokebunrui10-ぶんるいからポケモンを当てるクイズ（全10問）</title>
+{% endblock %}
+
+
+
 {% block content %}
 
 
 <body>
     <div id="game-start-btn-wrapper">
-        
+        <h3>ぶんるい（○○ポケモン）からポケモンの名前を当てよう</h3>
+        <p>＜ルール＞</p>
+        <p>正解で3点、ヒントを見るたびに1点減点</p>
+        <p>不正解でも1点減点</p>
+        <p>答えを見たら回答権は失うがペナルティは無し</p>
         <button id="game-start-btn">START!</button>
     </div>
     <main id="pokebunrui10-main">

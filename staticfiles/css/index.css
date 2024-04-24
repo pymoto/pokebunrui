@@ -1,0 +1,85 @@
+/* @charset "UTF-8"; 
+
+.applink {
+    all: unset;
+    font-size: 4vw;
+    display: flex;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 16px;
+    margin: 15px auto;
+    width: 80vw;
+}
+
+.applink:hover {
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+.applink-text {
+    all: unset;
+    margin: auto;
+} */
+
+/* リセット */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, a, span, div {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 全体のレイアウト */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+header {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h4 {
+    margin: 0;
+}
+
+#reset-btn {
+    text-decoration: none;
+    color: #333;
+}
+
+/* コンテンツ */
+.applink {
+    display: block;
+    text-decoration: none;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.applink:hover {
+    background-color: #0056b3;
+}
+
+.applink-text {
+    margin: 0;
+}
+
+/* レスポンシブ対応 */
+@media only screen and (max-width: 600px) {
+    header {
+        padding: 10px;
+    }
+
+    .applink {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}

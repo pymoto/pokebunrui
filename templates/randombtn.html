@@ -1,4 +1,9 @@
-{% extends 'base.html' %}<
+{% extends 'base.html' %}
+
+{% block head %}
+<title>知らない人のブログを見よう</title>
+{% endblock %}
+
 
 
 
@@ -7,9 +12,22 @@
     
     <button id="nextbtn">次のブログ</button>
     <button><a href="{{ randomurl }}">ブログに飛ぶ</a></button>
-    <iframe src="{{ randomurl }}" frameborder="0" style="width:100%;height: 800px;"></iframe>
+    <!-- <iframe src="{{ randomurl }}" frameborder="0" style="width:100%;height: 800px;"></iframe> -->
     
     {% load static %}
     <script src="{% static 'js/randomblog.js' %}"></script>
+    <script>
+        const iframe = document.createElement("iframe");
+        iframe.src = "{{ randomurl }}";
+        iframe.referrerPolicy = "unsafe-url";
+        iframe.frameBorder = '0';
+        iframe.style.width = '100%'
+        iframe.style.height = '80vw'
+        iframe.style.display = 'block'
+        iframe.style.margin = '5vw 0 0 0'
+        const body = document.querySelector("body");
+        body.appendChild(iframe); // Fetch the image using the complete URL as the referrer
+
+    </script>
 </body>
 {% endblock content %}

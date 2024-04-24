@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+/* #pokebunrui10-main {
+    display: none;
+} */
+
+#game-start-btn-wrapper {
+    display: none;
+    text-align: center;
+    margin: 30vw 0;
+}
+
+#new-game {
+    display: block;
+    margin: 30vw 0;
+}
+
+#total-point-input {
+    display: none;
+}
+#finish-game-btn {
+    display: none;
+    
+}

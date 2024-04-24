@@ -10,7 +10,9 @@ def indexfunc(request):
 def randombtnfunc(request):
     topiclist = []
     article_list = []
-    site_selector = random.randint(1,2)
+    # amebloから読み込まないように変更
+    # site_selector = random.randint(1,2)
+    site_selector = 2
     # if site_selector == 0:
     #     random_url_get('https://hatenablog.com/topics/journal', '.topic-nav-item-link', topiclist)
     #     print(topiclist)

@@ -1,0 +1,37 @@
+.km-main {
+    padding: 0 auto;
+    text-align: center;
+}
+
+.km-container {
+    width: 60vw;
+    margin: 3vw auto;
+    border: 1px solid black;
+}
+
+.km-place-name {
+    text-align: left;
+    padding: 0 10vw;
+}
+.km-explain {
+    text-align: left;
+    padding: 0 10vw;
+
+}
+
+.km-address {
+    font-weight: unset;
+}
+
+.km-img-ul {
+    text-align: center;
+    padding: 0;
+}
+
+.km-img-li {
+    list-style: none;
+}
+
+.km-img {
+    width: 40vw;
+}
